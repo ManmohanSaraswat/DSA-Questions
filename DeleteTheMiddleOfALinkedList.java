@@ -50,4 +50,15 @@ public class DeleteTheMiddleOfALinkedList {
         slow.next = slow.next.next;
         return head;
     }
+    public ListNode deleteMiddleApproach3(ListNode head) {
+        if(head.next == null) return null;
+        ListNode slow = head;
+        ListNode fast = head.next.next;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return head;
+    }
 }
