@@ -32,7 +32,7 @@ public class CountSquareSubMatricesWithAllOne {
     public int countSquares(int[][] matrix) {
         int n = matrix.length;
         int m = matrix[0].length;
-        int ans = 0, temp;
+        int ans = 0;
         int dp[][] = new int[n][m];
         for (int i = n - 1; i >= 0; i--) {
             for (int j = m - 1; j >= 0; j--) {
