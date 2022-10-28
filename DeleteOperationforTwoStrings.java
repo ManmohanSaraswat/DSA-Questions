@@ -21,7 +21,22 @@ public class DeleteOperationforTwoStrings {
         for (int[] i : dp)
             Arrays.fill(i, -1);
         int ans = solve(0, 0);
-        System.out.println(ans);
         return arr.length + brr.length - ans * 2;
+    }
+    public int minDistanceTabular(String word1, String word2) {
+        char[] arr = word1.toCharArray();
+        char[] brr = word2.toCharArray();
+        int n = arr.length, m = brr.length;
+        int[][] dp = new int[n + 1][m + 1];
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                if(arr[i - 1] == brr[j - 1])
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                else
+                    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
+            }
+        }
+        int ans = dp[n][m];
+        return n + m - ans * 2;
     }
 }
