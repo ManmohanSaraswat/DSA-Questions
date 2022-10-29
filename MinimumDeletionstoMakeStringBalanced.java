@@ -72,4 +72,13 @@ public class MinimumDeletionstoMakeStringBalanced {
         }
         return Math.min(curA, curB);
     }
+    public int minimumDeletionsEfficientApproach(String s) {
+        char[] arr = s.toCharArray();
+        int ans = 0, b = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == 'b') b++;
+            else ans = Math.min(ans + 1, b);
+        }
+        return ans;
+    }
 }
