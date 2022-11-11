@@ -42,8 +42,7 @@ public class Triangle {
         int a = 0, b = 0;
         a = solve(triangle, row + 1, col);
         if (row + 1 < triangle.size() && triangle.get(row + 1).size() > col + 1)
-            ;
-        b = solve(triangle, row + 1, col + 1);
+            b = solve(triangle, row + 1, col + 1);
         return dp[row][col] = triangle.get(row).get(col) + Math.min(a, b);
     }
 
