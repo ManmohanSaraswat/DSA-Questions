@@ -44,4 +44,14 @@ public class BestTimeToBuyAndSellStocksWithTransactionFees {
         }
         return dp[prices.length][0];
     }
+        public int maxProfitSmartPlay(int[] prices, int fee) {
+            int buyDay = 0, clearDay = 0, prevBuyDay = -prices[0], prevClearDay = 0;
+            for(int i = 1; i < prices.length; i++){
+                buyDay = Math.max(prevBuyDay, prevClearDay - prices[i]);
+                clearDay = Math.max(prevClearDay, prices[i] + prevBuyDay - fee);
+                prevBuyDay = buyDay;
+                prevClearDay = clearDay;
+            }
+            return clearDay;
+        }
 }
